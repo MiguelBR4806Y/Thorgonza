@@ -11,228 +11,236 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/svg+xml" href="#favicon" />
+  <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+  <link rel="icon" type="image/png" href="img/PNG/LOGO%20COLORIDO/ISOTIPO%20-%20THORGONZA.png" />
 </head>
 <body>
 
-  <!-- ===================== HEADER / NAV ===================== -->
-  <header class="header" id="inicio">
-    <div class="container header__inner">
-      <a href="#inicio" class="logo" aria-label="Thorgonza — inicio">
-        <svg class="logo__isotipo" viewBox="0 0 48 48" role="img" aria-hidden="true">
-          <circle cx="24" cy="24" r="23" class="logo__anillo" />
-          <text x="24" y="34" class="logo__g" text-anchor="middle">g</text>
-          <circle cx="38" cy="14" r="3.4" class="logo__corte logo__corte--a" />
-          <circle cx="10" cy="33" r="2.4" class="logo__corte logo__corte--b" />
-        </svg>
-        <span class="logo__texto">Thorgonza</span>
-      </a>
+    <!-- ===================== HEADER / NAV ===================== -->
+    <header class="header" id="inicio">
+      <div class="container header__inner">
+        <a href="#inicio" class="logo" aria-label="Thorgonza — inicio">
+          <!-- ============ LOGO ============
+               CAMBIAR EL ARCHIVO  → cambia el src (los PNG están en img/PNG/…).
+               CAMBIAR EL TAMAÑO   → NO edites width/height de abajo, NO sirve.
+                                     El CSS los ignora (el CSS siempre gana).
+                                     Ve a styles.css → bloque :root → "1) LOGO"
+                                     y cambia --logo-isotipo / --logo-logotipo.
+               width/height = solo la relación de aspecto, para que la página no
+               salte mientras la imagen carga. Si las cambias, actualiza también
+               las variables de styles.css o el tamaño real no se moverá. -->
+          <img class="icono" src="img/PNG/LOGO%20COLORIDO/ISOTIPO%20-%20THORGONZA.png"
+               alt="Isotipo de Thorgonza" width="72" height="72" />
+          <img class="iconol" src="img/PNG/LOGO%20COLORIDO/LOGOTIPO%20-%20THORGONZA.png"
+               alt="Thorgonza" width="101" height="34" />
+        </a>
 
-      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
 
-      <nav class="nav" id="navMenu">
-        <ul class="nav__lista">
-          <li><a href="#servicios" class="nav__link">Servicios</a></li>
-          <li><a href="#valores" class="nav__link">Por qué nosotros</a></li>
-          <li><a href="#contacto" class="nav__link">Contacto</a></li>
-        </ul>
-        <a href="#contacto" class="btn btn--nav">Contacto</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- ===================== HERO ===================== -->
-    <section class="hero">
-      <div class="hero__deco" aria-hidden="true">
-        <span class="burbuja burbuja--1"></span>
-        <span class="burbuja burbuja--2"></span>
-        <span class="burbuja burbuja--3"></span>
-        <span class="burbuja burbuja--4"></span>
-        <span class="burbuja burbuja--5"></span>
+        <nav class="nav" id="navMenu">
+          <ul class="nav__lista">
+            <li><a href="#servicios" class="nav__link">Servicios</a></li>
+            <li><a href="#valores" class="nav__link">Por qué nosotros</a></li>
+            <li><a href="#contacto" class="nav__link">Contacto</a></li>
+          </ul>
+          <a href="#contacto" class="btn btn--nav">Contacto</a>
+        </nav>
       </div>
+    </header>
 
-      <div class="container hero__inner">
-        <p class="hero__eyebrow reveal">Insumos · Personalización · Papelería</p>
+    <main>
 
-        <h1 class="hero__titulo reveal">
-          <span class="palabra palabra--conecta">conecta,</span>
-          <span class="palabra palabra--crea">crea,</span>
-          <span class="palabra palabra--imprime">imprime</span>
-        </h1>
-
-        <p class="hero__subtitulo reveal">
-          El aliado que resuelve todo bajo una sola marca: insumos de sublimación,
-          personalización a medida y papelería corporativa con despacho directo
-          a tu espacio de trabajo.
-        </p>
-
-        <div class="hero__cta reveal">
-          <a href="#servicios" class="btn btn--primario">Ver servicios</a>
-          <a href="#contacto" class="btn btn--ghost">Cotiza tu proyecto</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== SERVICIOS ===================== -->
-    <section class="servicios" id="servicios">
-      <div class="container">
-        <div class="seccion__encabezado reveal">
-          <span class="seccion__tag">Lo que hacemos</span>
-          <h2 class="seccion__titulo">Tres servicios, una sola marca</h2>
+      <!-- ===================== HERO ===================== -->
+      <section class="hero">
+        <div class="hero__deco" aria-hidden="true">
+          <span class="burbuja burbuja--1"></span>
+          <span class="burbuja burbuja--2"></span>
+          <span class="burbuja burbuja--3"></span>
+          <span class="burbuja burbuja--4"></span>
+          <span class="burbuja burbuja--5"></span>
         </div>
 
-        <div class="servicios__grid">
-          <article class="card card--amarillo reveal">
-            <div class="card__icono" aria-hidden="true">
-              <svg viewBox="0 0 40 40"><path d="M8 14h24v16a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V14Z"/><path d="M14 14V9a6 6 0 0 1 12 0v5"/><circle cx="20" cy="25" r="4"/></svg>
-            </div>
-            <h3 class="card__titulo">Insumos de Sublimación</h3>
-            <p class="card__texto">
-              Materiales seleccionados y listos para producir: tintas, transferencias,
-              soportes y consumibles con stock confiable y precios claros.
-            </p>
-            <span class="card__barra"></span>
-          </article>
+        <div class="container hero__inner">
+          <p class="hero__eyebrow reveal">Insumos · Personalización · Papelería</p>
 
-          <article class="card card--rosa reveal">
-            <div class="card__icono" aria-hidden="true">
-              <svg viewBox="0 0 40 40"><path d="M26 6l8 8-18 18-9 1 1-9L26 6Z"/><path d="M22 10l8 8"/></svg>
-            </div>
-            <h3 class="card__titulo">Personalización a Medida</h3>
-            <p class="card__texto">
-              Diseñamos y producimos piezas únicas para tu marca: textiles, regalos
-              corporativos y objetos con tu identidad aplicada al detalle.
-            </p>
-            <span class="card__barra"></span>
-          </article>
+          <h1 class="hero__titulo reveal">
+            <span class="palabra palabra--conecta">conecta,</span>
+            <span class="palabra palabra--crea">crea,</span>
+            <span class="palabra palabra--imprime">imprime</span>
+          </h1>
 
-          <article class="card card--celeste reveal">
-            <div class="card__icono" aria-hidden="true">
-              <svg viewBox="0 0 40 40"><path d="M11 5h14l6 6v24H11V5Z"/><path d="M25 5v6h6"/><path d="M16 21h10M16 27h10"/></svg>
-            </div>
-            <h3 class="card__titulo">Papelería Corporativa</h3>
-            <p class="card__texto">
-              Tarjetas, hojas, carpetas y papelería institucional con acabados
-              profesionales que representan tu negocio con consistencia.
-            </p>
-            <span class="card__barra"></span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== PROPUESTA DE VALOR ===================== -->
-    <section class="valores" id="valores">
-      <div class="container">
-        <div class="seccion__encabezado seccion__encabezado--claro reveal">
-          <span class="seccion__tag seccion__tag--claro">Por qué Thorgonza</span>
-          <h2 class="seccion__titulo seccion__titulo--claro">
-            Despacho directo a tu espacio de trabajo
-          </h2>
-          <p class="seccion__subtitulo">
-            Ágiles, confiables y cercanos. Cumplimos lo que prometemos, cuando lo prometemos.
+          <p class="hero__subtitulo reveal">
+            El aliado que resuelve todo bajo una sola marca: insumos de sublimación,
+            personalización a medida y papelería corporativa con despacho directo
+            a tu espacio de trabajo.
           </p>
+
+          <div class="hero__cta reveal">
+            <a href="#servicios" class="btn btn--primario">Ver servicios</a>
+            <a href="#contacto" class="btn btn--ghost">Cotiza tu proyecto</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== SERVICIOS ===================== -->
+      <section class="servicios" id="servicios">
+        <div class="container">
+          <div class="seccion__encabezado reveal">
+            <span class="seccion__tag">Lo que hacemos</span>
+            <h2 class="seccion__titulo">Tres servicios, una sola marca</h2>
+          </div>
+
+          <div class="servicios__grid">
+            <article class="card card--amarillo reveal">
+              <div class="card__icono" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><path d="M8 14h24v16a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V14Z"/><path d="M14 14V9a6 6 0 0 1 12 0v5"/><circle cx="20" cy="25" r="4"/></svg>
+              </div>
+              <h3 class="card__titulo">Insumos de Sublimación</h3>
+              <p class="card__texto">
+                Materiales seleccionados y listos para producir: tintas, transferencias,
+                soportes y consumibles con stock confiable y precios claros.
+              </p>
+              <span class="card__barra"></span>
+            </article>
+
+            <article class="card card--rosa reveal">
+              <div class="card__icono" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><path d="M26 6l8 8-18 18-9 1 1-9L26 6Z"/><path d="M22 10l8 8"/></svg>
+              </div>
+              <h3 class="card__titulo">Personalización a Medida</h3>
+              <p class="card__texto">
+                Diseñamos y producimos piezas únicas para tu marca: textiles, regalos
+                corporativos y objetos con tu identidad aplicada al detalle.
+              </p>
+              <span class="card__barra"></span>
+            </article>
+
+            <article class="card card--celeste reveal">
+              <div class="card__icono" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><path d="M11 5h14l6 6v24H11V5Z"/><path d="M25 5v6h6"/><path d="M16 21h10M16 27h10"/></svg>
+              </div>
+              <h3 class="card__titulo">Papelería Corporativa</h3>
+              <p class="card__texto">
+                Tarjetas, hojas, carpetas y papelería institucional con acabados
+                profesionales que representan tu negocio con consistencia.
+              </p>
+              <span class="card__barra"></span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PROPUESTA DE VALOR ===================== -->
+      <section class="valores" id="valores">
+        <div class="container">
+          <div class="seccion__encabezado seccion__encabezado--claro reveal">
+            <span class="seccion__tag seccion__tag--claro">Por qué Thorgonza</span>
+            <h2 class="seccion__titulo seccion__titulo--claro">
+              Despacho directo a tu espacio de trabajo
+            </h2>
+            <p class="seccion__subtitulo">
+              Ágiles, confiables y cercanos. Cumplimos lo que prometemos, cuando lo prometemos.
+            </p>
+          </div>
+
+          <ul class="valores__grid">
+            <li class="valor reveal" style="--acento:#ffb71e">
+              <span class="valor__punto"></span>
+              <h3>Puntualidad</h3>
+              <p>Tiempos de entrega claros y cumplidos.</p>
+            </li>
+            <li class="valor reveal" style="--acento:#fa6772">
+              <span class="valor__punto"></span>
+              <h3>Confianza</h3>
+              <p>Calidad consistente en cada pedido.</p>
+            </li>
+            <li class="valor reveal" style="--acento:#3caafb">
+              <span class="valor__punto"></span>
+              <h3>Cercanía</h3>
+              <p>Atención directa, sin respuestas automáticas.</p>
+            </li>
+            <li class="valor reveal" style="--acento:#57eaa3">
+              <span class="valor__punto"></span>
+              <h3>Innovación</h3>
+              <p>Nuevas técnicas y materiales cada temporada.</p>
+            </li>
+            <li class="valor reveal" style="--acento:#e24791">
+              <span class="valor__punto"></span>
+              <h3>Versatilidad</h3>
+              <p>Del insumo al producto terminado, todo aquí.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== CTA FINAL ===================== -->
+      <section class="cta-final" id="contacto">
+        <div class="container cta-final__inner reveal">
+          <h2 class="cta-final__titulo">¿Listo para crear algo increíble?</h2>
+          <p class="cta-final__texto">
+            Cuéntanos qué necesitas y te enviamos una propuesta hoy mismo.
+          </p>
+          <a href="mailto:hola@thorgonza.com" class="btn btn--primario btn--grande">
+            Escríbenos
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__marca">
+          <a href="#inicio" class="logo logo--footer">
+            <!-- LOGO DEL FOOTER (versión blanca).
+                 El TAMAÑO tampoco se cambia aquí: usa las variables
+                 --logo-isotipo-footer / --logo-logotipo-footer en
+                 styles.css → bloque :root → "1) LOGO". -->
+            <img class="icono icono--footer" src="img/PNG/POSITIVO%20Y%20NEGATIVO/ISOTIPO%20BLANCO%20-%20THORGONZA.png"
+                 alt="Isotipo de Thorgonza" width="62" height="62" loading="lazy" />
+            <img class="iconol iconol--footer" src="img/PNG/POSITIVO%20Y%20NEGATIVO/LOGOTIPO%20BLANCO%20-%20THORGONZA.png"
+                 alt="Thorgonza" width="86" height="29" loading="lazy" />
+          </a>
+          <p class="footer__lema">conecta, crea, imprime</p>
         </div>
 
-        <ul class="valores__grid">
-          <li class="valor reveal" style="--acento:#ffb71e">
-            <span class="valor__punto"></span>
-            <h3>Puntualidad</h3>
-            <p>Tiempos de entrega claros y cumplidos.</p>
-          </li>
-          <li class="valor reveal" style="--acento:#fa6772">
-            <span class="valor__punto"></span>
-            <h3>Confianza</h3>
-            <p>Calidad consistente en cada pedido.</p>
-          </li>
-          <li class="valor reveal" style="--acento:#3caafb">
-            <span class="valor__punto"></span>
-            <h3>Cercanía</h3>
-            <p>Atención directa, sin respuestas automáticas.</p>
-          </li>
-          <li class="valor reveal" style="--acento:#57eaa3">
-            <span class="valor__punto"></span>
-            <h3>Innovación</h3>
-            <p>Nuevas técnicas y materiales cada temporada.</p>
-          </li>
-          <li class="valor reveal" style="--acento:#e24791">
-            <span class="valor__punto"></span>
-            <h3>Versatilidad</h3>
-            <p>Del insumo al producto terminado, todo aquí.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
+        <div class="footer__col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="mailto:hola@thorgonza.com">hola@thorgonza.com</a></li>
+            <li><a href="tel:+56900000000">+56 9 0000 0000</a></li>
+            <li>Santiago, Chile</li>
+          </ul>
+        </div>
 
-    <!-- ===================== CTA FINAL ===================== -->
-    <section class="cta-final" id="contacto">
-      <div class="container cta-final__inner reveal">
-        <h2 class="cta-final__titulo">¿Listo para crear algo increíble?</h2>
-        <p class="cta-final__texto">
-          Cuéntanos qué necesitas y te enviamos una propuesta hoy mismo.
-        </p>
-        <a href="mailto:hola@thorgonza.com" class="btn btn--primario btn--grande">
-          Escríbenos
-        </a>
-      </div>
-    </section>
+        <div class="footer__col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#valores">Por qué nosotros</a></li>
+            <li><a href="https://wa.me/50586702468?text=Hola%2C%20quiero%20más%20información%20sobre%20tu%20catálogo">Contacto</a></li>
+          </ul>
+        </div>
 
-  </main>
-
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__marca">
-        <a href="#inicio" class="logo logo--footer">
-          <svg class="logo__isotipo" viewBox="0 0 48 48" role="img" aria-hidden="true">
-            <circle cx="24" cy="24" r="23" class="logo__anillo" />
-            <text x="24" y="34" class="logo__g" text-anchor="middle">g</text>
-            <circle cx="38" cy="14" r="3.4" class="logo__corte logo__corte--a" />
-            <circle cx="10" cy="33" r="2.4" class="logo__corte logo__corte--b" />
-          </svg>
-          <span class="logo__texto">Thorgonza</span>
-        </a>
-        <p class="footer__lema">conecta, crea, imprime</p>
+        <div class="footer__col">
+          <h4>Síguenos</h4>
+          <ul class="footer__redes">
+            <li><a href="#" aria-label="Instagram">Instagram</a></li>
+            <li><a href="#" aria-label="TikTok">TikTok</a></li>
+          </ul>
+        </div>
       </div>
 
-      <div class="footer__col">
-        <h4>Contacto</h4>
-        <ul>
-          <li><a href="mailto:hola@thorgonza.com">hola@thorgonza.com</a></li>
-          <li><a href="tel:+56900000000">+56 9 0000 0000</a></li>
-          <li>Santiago, Chile</li>
-        </ul>
+      <div class="footer__base">
+        <div class="container footer__base-inner">
+          <span>© 2026 Thorgonza. Todos los derechos reservados.</span>
+          <span>Minimalista, pero con chispa.</span>
+        </div>
       </div>
-
-      <div class="footer__col">
-        <h4>Navegación</h4>
-        <ul>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#valores">Por qué nosotros</a></li>
-          <li><a href="https://wa.me/50586702468?text=Hola%2C%20quiero%20más%20información%20sobre%20tu%20catálogo">Contacto</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <h4>Síguenos</h4>
-        <ul class="footer__redes">
-          <li><a href="#" aria-label="Instagram">Instagram</a></li>
-          <li><a href="#" aria-label="TikTok">TikTok</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer__base">
-      <div class="container footer__base-inner">
-        <span>© 2026 Thorgonza. Todos los derechos reservados.</span>
-        <span>Minimalista, pero con chispa.</span>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
   <script src="script.js"></script>
 </body>

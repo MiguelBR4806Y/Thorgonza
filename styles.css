@@ -1,9 +1,41 @@
 /* ============================================================
    THORGONZA — Brandbook styles
    Base: #12294c / #ffffff · Acentos: explosión de color
+
+   >>> EDITA AQUÍ <<<  Todo lo que suele cambiar está en este bloque
+   :root. No hace falta tocar nada más abajo para:
+     · agrandar / achicar el logo
+     · cambiar colores de la marca
+     · cambiar tipografías
+     · ajustar el ancho máximo de la página
    ============================================================ */
 
 :root {
+  /* ----------------------------------------------------------
+     1) LOGO — tamaños por breakpoint (px o rem, elige tú)
+        · isotipo  = la "g" redondeada (ícono cuadrado)
+        · logotipo = la palabra "Thorgonza" (ancho, ratio 2.98:1)
+        La altura del header y el espaciado del hero se recalculan
+        solos a partir de --logo-isotipo, así que al cambiar estos
+        números no tienes que ajustar nada más.
+     ---------------------------------------------------------- */
+  --logo-isotipo: 72px;          /* header · desktop */
+  --logo-logotipo: 54px;         /* header · desktop */
+  --logo-gap: .85rem;            /* separación entre ícono y palabra */
+
+  --logo-isotipo-footer: 72px;   /* footer */
+  --logo-logotipo-footer: 48px;  /* footer */
+
+  /* Altura del header: se deriva del logo. Si cambias --logo-isotipo,
+     el hero y los anclas (#servicios, #valores…) siguen alineados. */
+  --header-pad-y: .8rem;
+  --header-alto: calc(var(--logo-isotipo) + var(--header-pad-y) * 2 + 1px);
+
+  /* ----------------------------------------------------------
+     2) COLOR — paleta oficial del brandbook
+        navy/blanco = base · el resto = "explosión de color"
+        (botones, hovers, íconos, burbujas)
+     ---------------------------------------------------------- */
   --navy: #12294c;
   --navy-90: #0d1f3d;
   --navy-70: #1c3a68;
@@ -20,17 +52,27 @@
   --menta: #57eaa3;
   --verde: #9bf467;
 
+  /* ----------------------------------------------------------
+     3) TIPOGRAFÍAS — Google Fonts (cargadas en index.html)
+        Manifold Extd CF Demi no es gratis, usamos Syne/Nunito.
+        Para cambiar: edita el <link> de fonts en index.html y
+        actualiza estas dos líneas.
+     ---------------------------------------------------------- */
   --fuente-titulo: "Syne", "Segoe UI", sans-serif;
   --fuente-texto: "Nunito", "Segoe UI", sans-serif;
 
-  --radio: 20px;
+  /* ----------------------------------------------------------
+     4) MÉTRICAS generales
+     ---------------------------------------------------------- */
+  --radio: 20px;                 /* redondez de cards */
   --sombra: 0 18px 45px -22px rgba(18, 41, 76, 0.55);
-  --contenedor: 1160px;
+  --contenedor: 1160px;          /* ancho máximo del contenido */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* Ancla bajo el header fijo: la calcula --header-alto */
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-alto) + 1rem); }
 
 body {
   font-family: var(--fuente-texto);
@@ -50,6 +92,13 @@ ul { list-style: none; }
 }
 
 /* ---------------- BOTONES ---------------- */
+:focus-visible {
+  outline: 3px solid var(--celeste);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.btn:focus-visible { border-radius: 999px; }
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -123,18 +172,27 @@ ul { list-style: none; }
   padding: .8rem 0;
 }
 
-/* Logo */
-.logo { display: flex; align-items: center; gap: .65rem; }
-.logo__isotipo { width: 42px; height: 42px; flex: none; }
-.logo__anillo { fill: var(--navy); }
-.logo__g {
-  font-family: var(--fuente-titulo);
-  font-size: 30px;
-  font-weight: 800;
-  fill: var(--blanco);
+/* ---------------- LOGO ----------------
+   Los tamaños vienen de --logo-* en :root (arriba del archivo).
+   Aquí NO se cambian números: solo se aplican las variables. */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--logo-gap);
+  min-width: 0;
 }
-.logo__corte--a { fill: var(--amarillo); }
-.logo__corte--b { fill: var(--rosa-fuerte); }
+.icono {
+  width: auto;
+  height: var(--logo-isotipo);
+  flex: none;
+}
+.iconol {
+  width: auto;
+  height: var(--logo-logotipo);
+  flex: none;
+}
+.icono--footer { height: var(--logo-isotipo-footer); }
+.iconol--footer { height: var(--logo-logotipo-footer); }
 
 .logo__texto {
   font-family: var(--fuente-titulo);
@@ -144,8 +202,6 @@ ul { list-style: none; }
   color: var(--navy);
 }
 
-.logo--footer .logo__anillo { fill: var(--blanco); }
-.logo--footer .logo__g { fill: var(--navy); }
 .logo--footer .logo__texto { color: var(--blanco); }
 
 /* Nav */
@@ -194,7 +250,10 @@ ul { list-style: none; }
   overflow: hidden;
   background: var(--navy);
   color: var(--blanco);
-  padding: 11rem 0 8rem;
+  /* Empieza debajo del header fijo. El valor se deriva de --header-alto,
+     que a su vez sale de --logo-isotipo → si agrandas el logo, esto
+     se reajusta solo. El 5.5rem es el aire extra bajo el header. */
+  padding: calc(var(--header-alto) + 5.5rem) 0 8rem;
   text-align: center;
 }
 
@@ -305,10 +364,18 @@ ul { list-style: none; }
 /* ---------------- SERVICIOS ---------------- */
 .servicios { padding: 6rem 0; background: var(--blanco); }
 
+/* Flex con max-width + justify-content:center: cuando 3 ítems no caben en una
+   fila, el que sobra queda centrado y nunca huérfano a la izquierda. */
 .servicios__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.6rem;
+}
+.servicios__grid .card {
+  flex: 1 1 280px;
+  max-width: 420px;
+  min-width: 0;
 }
 
 .card {
@@ -396,9 +463,15 @@ ul { list-style: none; }
 .valores .container { position: relative; z-index: 2; }
 
 .valores__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.4rem;
+}
+.valores__grid .valor {
+  flex: 1 1 200px;
+  max-width: 320px;
+  min-width: 0;
 }
 
 .valor {
@@ -513,12 +586,34 @@ ul { list-style: none; }
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ---------------- RESPONSIVE ---------------- */
+/* ---------------- RESPONSIVE ----------------
+   PUNTOS DE CORTE (cámbialos aquí si necesitas otro ancho):
+     ≤1024px  → aprieta los gaps del menú desktop
+     ≤900px   → footer en 2 columnas
+     ≤768px   → menú hamburguesa + logo tamaño tablet/móvil
+     ≤600px   → footer en 1 columna
+     ≤480px   → logo aún más pequeño + paddings de móvil
+   El logo NO se cambia aquí con números sueltos: se cambia en los
+   bloques :root de cada media query (variables --logo-*).
+   --------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .nav { gap: 1.2rem; }
+  .nav__lista { gap: 1.2rem; }
+}
+
 @media (max-width: 900px) {
   .footer__inner { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 768px) {
+  /* --- LOGO en tablet/móvil: ajusta estos 4 valores --- */
+  :root {
+    --logo-isotipo: 76px;
+    --logo-logotipo: 54px;
+    --logo-isotipo-footer: 54px;
+    --logo-logotipo-footer: 48px;
+  }
+
   .nav__toggle { display: flex; }
 
   .nav {
@@ -535,22 +630,47 @@ ul { list-style: none; }
     box-shadow: 0 20px 35px -25px rgba(18, 41, 76, .8);
     clip-path: inset(0 0 100% 0);
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: clip-path .35s ease, opacity .35s ease;
+    transition: clip-path .35s ease, opacity .35s ease, visibility .35s;
   }
   .nav.abierto {
     clip-path: inset(0 0 0 0);
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
   }
   .nav__lista { flex-direction: column; gap: .9rem; }
   .nav__link { font-size: 1.05rem; }
   .btn--nav { align-self: flex-start; }
 
-  .hero { padding: 8.5rem 0 5.5rem; }
+  .hero { padding: calc(var(--header-alto) + 3.5rem) 0 5.5rem; }
   .servicios, .valores { padding: 4.5rem 0; }
-  .footer__inner { grid-template-columns: 1fr; gap: 2rem; }
   .footer__base-inner { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 600px) {
+  .footer__inner { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ---------------------------------------------------------------
+   BREAKPOINT MUY PEQUEÑO (≤480px) — móviles angostos
+   Aquí solo se reduce un poco más el logo; el logotipo (palabra)
+   se mantiene visible porque aún cabe junto al isotipo.
+   --------------------------------------------------------------- */
+@media (max-width: 480px) {
+  :root {
+    --logo-isotipo: 76px;
+    --logo-logotipo: 54px;
+    --logo-isotipo-footer: 54px;
+    --logo-logotipo-footer: 48px;
+  }
+
+  .container { width: min(100% - 1.75rem, var(--contenedor)); }
+  .hero { padding: calc(var(--header-alto) + 2.75rem) 0 4.5rem; }
+  .card { padding: 1.7rem 1.4rem 2.2rem; }
+  .btn { padding: .75rem 1.35rem; font-size: .9rem; }
+  .btn--grande { font-size: 1rem; padding: .95rem 1.8rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
